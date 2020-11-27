@@ -16,5 +16,9 @@ module.exports.policies = {
   * (`true` allows public access)                                            *
   *                                                                          *
   ***************************************************************************/
+  UserController: {
+    "*": true
+  },
 
+  '*': 'isLoggedIn',
 };

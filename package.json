@@ -28,7 +28,7 @@
     "test": "npm run lint && npm run custom-tests && echo 'Done.'",
     "lint": "./node_modules/eslint/bin/eslint.js . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
     "custom-tests": "echo \"(No other custom tests yet.)\" && echo",
-    "dev": "nodemon --watch /usr/src/app sails lift"
+    "dev": "nodemon --watch . sails lift"
   },
   "main": "app.js",
   "repository": {
