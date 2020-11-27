@@ -10,5 +10,5 @@ services:
       - NODE_ENV=development
     container_name: sails
     volumes:
-      - ./:/src
+      - ./:/src/app
     command: "npm run dev"
