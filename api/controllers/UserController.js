@@ -4,6 +4,7 @@
  * @description :: Server-side actions for handling incoming requests.
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
+const passport = require('passport');
 
 module.exports = {
 
@@ -11,14 +12,28 @@ module.exports = {
    * `UserController.login()`
    */
   login: async function (req, res) {
-    throw 'Not implemented';
+    passport.authenticate('local', function(err, user, info){
+      if((err) || (!user)) {
+        return res.send({
+          message: info.message,
+          user
+        });
+      } req.logIn(user, function(err) {
+        if(err) res.send(err);
+        return res.send({
+          message: info.message,
+          user
+        });
+      });
+    })(req, res);
   },
 
   /**
    * `UserController.logout()`
    */
   logout: async function (req, res) {
-    throw 'Not implemented';
+    req.logout();
+    res.redirect('/');
   },
 
   /**

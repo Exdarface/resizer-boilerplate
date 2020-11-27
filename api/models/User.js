@@ -34,7 +34,9 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
   },
-
+  customToJSON: function() {
+    return _.omit(this, ['password']);
+  },
   beforeCreate: function(user, cb){
     bcrypt.genSalt(10, (err, salt) => {
       if(err) { return cb(err); }
