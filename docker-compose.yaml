@@ -6,6 +6,8 @@ services:
     image: sails:latest
     ports:
       - "1337:1337"
+    environment:
+      - NODE_ENV=development
     container_name: sails
     volumes:
       - ./:/src
