@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  web:
+    build:
+      context: .
+    image: sails:latest
+    ports:
+      - "1337:1337"
+    container_name: sails
+    volumes:
+      - ./:/src
+    command: "npm run dev"
