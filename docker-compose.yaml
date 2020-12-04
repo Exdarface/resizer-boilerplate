@@ -1,16 +1,12 @@
 version: "3.8"
 services:
   web:
-    build:
-      context: .
-    image: sails:latest
+    build: .
     ports:
       - "1337:1337"
     environment:
       - NODE_ENV=development
     container_name: sails
     volumes:
-      - myapp:/usr/src/app
+      - ./:/usr/src/app
     command: "npm run dev"
-volumes:
-  myapp:
