@@ -7,6 +7,7 @@ services:
     environment:
       NODE_ENV: development
       DATABASE_URL: mysql://root@db:3306/scalingo_database
+      REDIS_URL: redis://redis@cache:6379
     container_name: sails
     volumes:
       - ./:/usr/src/app
@@ -28,3 +29,10 @@ services:
       # Where our data will be persisted
     volumes:
       - ./_docker/mysql:/var/lib/mysql
+  cache:
+    image: redis
+    container_name: sails-redis
+    volumes:
+      - ./_docker/redis:/data
+    ports:
+      - "6379:6379"

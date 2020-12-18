@@ -18,7 +18,8 @@
     "sails-mysql": "^1.0.1",
     "sails-hook-grunt": "^4.0.0",
     "sails-hook-orm": "^2.1.1",
-    "sails-hook-sockets": "^2.0.0"
+    "sails-hook-sockets": "^2.0.0",
+    "knex": "^0.21.12"
   },
   "devDependencies": {
     "eslint": "5.16.0",
@@ -29,7 +30,8 @@
     "test": "npm run lint && npm run custom-tests && echo 'Done.'",
     "lint": "./node_modules/eslint/bin/eslint.js . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
     "custom-tests": "echo \"(No other custom tests yet.)\" && echo",
-    "dev": "nodemon --legacy-watch sails lift"
+    "dev": "nodemon --legacy-watch sails lift",
+    "migrate": "knex migrate:latest"
   },
   "main": "app.js",
   "repository": {
