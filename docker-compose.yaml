@@ -6,7 +6,7 @@ services:
       - "1337:1337"
     environment:
       NODE_ENV: development
-      MYSQL_DATABASE_URL: mysql://root@db:3306/scalingo_database
+      DATABASE_URL: mysql://root@db:3306/scalingo_database
     container_name: sails
     volumes:
       - ./:/usr/src/app
