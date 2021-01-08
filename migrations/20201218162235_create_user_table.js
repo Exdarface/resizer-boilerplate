@@ -1,4 +1,3 @@
-
 exports.up = function(knex) {
 	return knex.schema.createTable("user", (table) => {
 		table.increments();
@@ -7,8 +6,8 @@ exports.up = function(knex) {
 		table.bigInteger("createdAt").notNullable();
 		table.bigInteger("updatedAt").notNullable();
 	})
-};
-
+  };
+  
 exports.down = function(knex) {
 	knex.schema.dropTable('user');
 };
