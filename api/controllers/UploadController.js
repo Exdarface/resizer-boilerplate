@@ -13,7 +13,14 @@ module.exports = {
         }
 
         req.file("image").upload({
-            maxBytes: 10000000
+            adapter: require('skipper-s3'),
+            key: process.env.S3_KEY,
+            secret: process.env.S3_SECRET,
+            bucket: process.env.S3_BUCKET,
+            maxBytes: 10000000,
+            saveAs: (__newFileStream, next) => {
+                return next(undefined, `/${process.env.S3_FOLDER}/${Date.now()}-${__newFileStream.filename}`);
+            }
         }, function whenDone(err, uploadedFiles) {
             if (err) {
                 res.serverError(err);
@@ -37,8 +44,12 @@ module.exports = {
             if (!img) return res.notFound();
             img = img[0];
 
-            var SkipperDisk = require('skipper-disk');
-            var fileAdapter = SkipperDisk(/* optional opts */);
+            var SkipperDisk = require('skipper-s3');
+            var fileAdapter = SkipperDisk({
+                key: process.env.S3_KEY,
+                secret: process.env.S3_SECRET,
+                bucket: process.env.S3_BUCKET,
+            });
 
             res.set("Content-disposition", "attachment; filename='" + img.path.split("/")[img.path.split("/").length -1 ] + "'");
 

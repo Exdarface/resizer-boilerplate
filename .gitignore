@@ -119,6 +119,7 @@ node_modules
 .DS_STORE
 .netbeans
 nbproject
+.env
 .idea
 *.iml
 .vscode
