@@ -36,8 +36,8 @@ module.exports = {
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
     images: {
-      collection : 'image',
-      via : 'uploader'
+      collection: 'image',
+      via: 'uploader'
     }
   },
   customToJSON: function() {
